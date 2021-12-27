@@ -9,6 +9,5 @@ COPY ./app/ /app
 WORKDIR /app/
 RUN pip install -r /app/requirements.txt
 RUN python3 svc_create_db.py
-RUN python3 /app/bot.py || python3 
 ENTRYPOINT [ "python" ]
 CMD [ "bot.py" ]
