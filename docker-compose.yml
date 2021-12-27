@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+  rssfeed:
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 1g
+    image: "rssfeed:v1.0.0"
