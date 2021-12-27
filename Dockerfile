@@ -5,10 +5,10 @@
 #  2021-12-27 @ 0047 Pacific Time    7           #
 ##################################################
 FROM python:3.7-slim
-COPY ./auditor/ /app
+COPY ./app/ /app
 WORKDIR /app/
 RUN pip install -r /app/requirements.txt
-RUN mkdir -p <redacted> && python3 /app/<redacted> || python3 <redacted>
-EXPOSE 5000
+RUN python3 svc_create_db.py
+RUN python3 /app/bot.py || python3 
 ENTRYPOINT [ "python" ]
-CMD [ "svc_redacted.py" ]
+CMD [ "bot.py" ]
